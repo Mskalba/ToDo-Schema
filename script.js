@@ -38,7 +38,7 @@ function listClickManager(/* event- event.target */) {
 }
 
 function removeListElement(/* id */) {
-    // Usuwanie elementu
+    // Usuwanie elementu z listy
 }
 
 function editListElement(/* id */) {
