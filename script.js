@@ -1,13 +1,16 @@
 // Zmienne globalne
+let $list;
 
 const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
 
 function main() {
-    //odpalenie funkcji początkowych
+    prepareDOMElements();
+    prepareInitialList();
 }
 
 function prepareDOMElements() {
     //przygotowanie- wyszukanie elementów w drzewie DOM
+    $list = document.getElementById('list');
 }
 
 function prepareDOMEvents() {
@@ -16,19 +19,29 @@ function prepareDOMEvents() {
 
 function prepareInitialList() {
     //wrzucenie poczatkowych elementów do listy
+    initialList.forEach(todo => {
+        addNewElementToList(todo);
+    });
 }
 
 function addButtonClickHandler() {
     //obługa kliknięcia przycisku dodaj
 }
 
-function addNewElementToList(/* Title, author, id */) {
+function addNewElementToList(title   /* Title, author, id */) {
     //obsługa dodawanie elementów do listy
     // $list.appendChild(createElement('nowy', 2))
+    const newElement = createElement(title);
+    $list.appendChild(newElement);
 }
 
-function createElement(/* Title, author, id */) {
+function createElement(title /* Title, author, id */) {
     // Tworzyc reprezentacje DOM elementu return newElement
+    // return newElement
+    const newElement = document.createElement('li');
+    newElement.innerText = title;
+
+    return newElement;
 }
 
 function listClickManager(/* event- event.target */) {
